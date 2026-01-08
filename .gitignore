@@ -1,0 +1,61 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors/IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*~
+*.bak
+*.tmp
+
+# Simulation / build outputs
+build/
+sim/
+*.vcd
+*.fst
+*.wlf
+*.vvp
+*.vpd
+*.exe
+*.out
+*.log
+*.log.*
+*.jou
+*.jou*
+*.rpt
+
+# Synthesis / tool files
+*.ngc
+*.ngd
+*.srp
+*.bit
+*.bin
+*.hex
+*.xpr
+*.xci
+*.pb
+
+# Misc
+__pycache__/
+*.pyc
+coverage/
+.coverage
+htmlcov/
+
+# Backup / temp
+*.orig
+*.tmp
+
+# Ignore environment files
+.env
+
+# Ignore large binary dumps
+*.dat
+*.bin
+
+# Keep Git metadata
+!.gitignore
