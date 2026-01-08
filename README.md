@@ -16,9 +16,13 @@ The project is intended as a learning-oriented implementation of SPI, focusing o
 2. Project Objective
 
 ✔ Transmit one byte (0xA5) from SPI Master
+
 ✔ Receive one byte (0x3C) from SPI Slave
+
 ✔ Verify received data
+
 ✔ Indicate result using PASS / FAIL signal
+
 ✔ Observe all SPI signals in simulation
 
 3. SPI Configuration
@@ -36,14 +40,11 @@ The project is intended as a learning-oriented implementation of SPI, focusing o
 4. Project Architecture
 
 
-
 +-------------+        SPI Bus        +------------------+
-| SPI Master  | ---------------------| Dummy SPI Slave  |
-|   (FPGA)    |  SCLK, CS, MOSI, MISO |   (Verilog)     |
+| SPI Master  |----------------------| Dummy SPI Slave  |
+|   (FPGA)    |  SCLK, CS, MOSI, MISO|   (Verilog)     |
 +-------------+                      +------------------+
-                  |
-                  |
-               PASS / FAIL
+
 
 5. File Structure
 
@@ -126,6 +127,7 @@ rx_data is latched
 done signal is asserted
 
 2️⃣ spi_slave_dummy.v — Dummy SPI Slave Module
+
 🔹 Purpose
 
 This module simulates a simple SPI Slave that:
@@ -141,7 +143,9 @@ Ignores MOSI data (for simplicity)
 🔹 Why Dummy Slave?
 
 ✔ Allows SPI verification without hardware
+
 ✔ Ideal for understanding SPI timing
+
 ✔ Simplifies debugging and learning
 
 🔹 Slave Behavior
@@ -164,6 +168,7 @@ miso <= slave_shift[7];
 slave_shift <= {slave_shift[6:0], 1'b0};
 
 3️⃣ spi_top.v — Top-Level Module
+
 🔹 Purpose
 
 This module connects everything together:
@@ -202,11 +207,16 @@ else
 🔹 Why a Top Module?
 
 ✔ Central control
+
 ✔ Clean integration
+
 ✔ Easy FPGA mapping
+
 ✔ Easier testbench design
 
+
 4️⃣ tb_spi_top.v — Testbench
+
 🔹 Purpose
 
 The testbench verifies the entire SPI system in simulation.
@@ -214,13 +224,19 @@ The testbench verifies the entire SPI system in simulation.
 🔹 What the Testbench Does
 
 ✔ Generates 100 MHz FPGA clock
+
 ✔ Applies reset
+
 ✔ Observes SPI signals
+
 ✔ Displays PASS / FAIL
+
 ✔ Enables waveform analysis
 
 🔹 Simulation Observation:
+
  we run the simulation on vivado and get the result like:
+ 
  ![alt text](image.png)
 
  🔁 Step-by-Step Data Flow (End-to-End)
@@ -268,8 +284,6 @@ Verilog HDL
 Vivado Waveform Viewer / GTKWave
 
 👥 Contributors
-
-🔹 Ujwal
 
 🔹 Ujwal
 
