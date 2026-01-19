@@ -20,3 +20,5 @@ module spi_slave_dummy (
             shift_reg <= {shift_reg[6:0], 1'b0};
             bit_cnt   <= bit_cnt - 1;
         end
+    end
+endmodule
