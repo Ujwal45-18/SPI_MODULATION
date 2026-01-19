@@ -61,3 +61,4 @@ module spi_master (
             end
         end
     end
+endmodule
